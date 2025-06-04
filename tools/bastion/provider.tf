@@ -2,10 +2,10 @@ terraform {
   required_version = ">= 1.9.0"
 
   backend "azurerm" {
-    resource_group_name  = "tfstate"
-    storage_account_name = "tfstate"
-    container_name       = "tfstate"
-    key                  = "terraform.tfstate"
+    resource_group_name  = "aif1"
+    storage_account_name = "aif1"
+    container_name       = "aif1-bastion"
+    key                  = "terraform.tfsate"
   }
 
   required_providers {
@@ -32,7 +32,7 @@ provider "azurerm" {
     }
   }
   # subscription_id is now required with AzureRM provider 4.0. Use either of the following methods:
-  # subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  subscription_id = "32abe758-215c-4136-95fa-5f1f3963eee6"
   # export ARM_SUBSCRIPTION_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 }
 

@@ -1,12 +1,13 @@
-virtual_network_name           = "abc123-dev-vwan-spoke"
-virtual_network_resource_group = "abc123-dev-networking"
+virtual_network_name           = "d94cca-test-vwan-spoke"
+virtual_network_resource_group = "d94cca-test-networking"
+virtual_network_id             = "/subscriptions/32abe758-215c-4136-95fa-5f1f3963eee6/resourceGroups/d94cca-test-networking/providers/Microsoft.Network/virtualNetworks/d94cca-test-vwan-spoke"
 
-resource_group_name        = "abc123-dev-bastion"
+resource_group_name        = "aif1"
 bastion_host_name          = "bastion" # NOTE: Will be appended with a random string
 location                   = "canadacentral"
-bastionSubnetAddressPrefix = "10.41.0.0/26"
+bastionSubnetAddressPrefix = "10.46.61.0/24"
 
-sku                = "Basic"
+sku                = "Developer"
 copy_paste_enabled = true # Configuration: Copy and paste
 
 ### Standard / Premium features:

@@ -8,6 +8,11 @@ variable "virtual_network_resource_group" {
   type        = string
 }
 
+variable "virtual_network_id" {
+  description = "ID of the existing virtual network"
+  type        = string
+}
+
 variable "bastionSubnetAddressPrefix" {
   description = "Address prefix for the bastion subnet. Must be at least w.x.y.z/26"
   type        = string

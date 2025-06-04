@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "bastion_rg" {
-  name     = var.resource_group_name
+  name     = "aif1"
   location = var.location
 }
 
@@ -24,17 +24,20 @@ module "azure_bastion" {
   file_copy_enabled         = var.file_copy_enabled
   sku                       = var.sku
   ip_connect_enabled        = var.ip_connect_enabled
-  kerberos_enabled          = var.kerberos_enabled
-  scale_units               = var.scale_units
-  shareable_link_enabled    = var.shareable_link_enabled
-  tunneling_enabled         = var.tunneling_enabled
-  session_recording_enabled = var.session_recording_enabled
 
-  ip_configuration = {
-    name                 = "${var.bastion_host_name}-ipconfig"
-    subnet_id            = azapi_resource.bastion_subnet.id
-    public_ip_address_id = azurerm_public_ip.bastion_public_ip.id
-  }
+  virtual_network_id        = var.virtual_network_id
+
+  # kerberos_enabled          = var.kerberos_enabled
+  # scale_units               = var.scale_units
+  # shareable_link_enabled    = var.shareable_link_enabled
+  # tunneling_enabled         = var.tunneling_enabled
+  # session_recording_enabled = var.session_recording_enabled
+
+  # ip_configuration = {
+  #  name                 = "${var.bastion_host_name}-ipconfig"
+  #  subnet_id            = azapi_resource.bastion_subnet.id
+  #  public_ip_address_id = azurerm_public_ip.bastion_public_ip.id
+  # }
 
   tags = var.tags
 }

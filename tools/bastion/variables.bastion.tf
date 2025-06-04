@@ -8,10 +8,10 @@ variable "sku" {
   type        = string
   default     = "Basic"
 
-  validation {
-    condition     = var.sku != "Developer"
-    error_message = "Developer SKU is not currently available in Canada"
-  }
+#  validation {
+#    condition     = var.sku != "Developer"
+#    error_message = "Developer SKU is not currently available in Canada"
+#  }
 }
 
 variable "copy_paste_enabled" {
@@ -59,34 +59,6 @@ variable "kerberos_enabled" {
       (var.kerberos_enabled == true && var.sku == "Standard" || var.sku == "Premium")
     )
     error_message = "kerberos_enabled is only supported when sku is Standard or Premium"
-  }
-}
-
-variable "scale_units" {
-  description = "(Optional) The number of scale units for the Bastion Host. Defaults to 2."
-  type        = number
-  default     = 2
-
-  validation {
-    condition = (
-      (
-        var.scale_units >= 2 &&
-        var.sku == "Standard" || var.sku == "Premium"
-      ) ||
-      (
-        var.scale_units <= 2 &&
-        var.sku == "Basic"
-      )
-    )
-    error_message = "scale_units is only supported when sku is Standard or Premium"
-  }
-
-  validation {
-    condition = (
-      var.scale_units >= 2 &&
-      var.scale_units <= 50
-    )
-    error_message = "scale_units must be between 2 and 50"
   }
 }
 
