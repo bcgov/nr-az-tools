@@ -2,6 +2,7 @@
 **/.terraform/*
 # Ignore variables files
 *.auto.tfvars
+**variables.tf
 # Ignore override files
 *.tfoverride
 # Ignore environment-specific files
